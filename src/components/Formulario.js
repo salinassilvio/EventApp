@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-
+import {CategoriasConsumer} from '../context/CategoriasContext';
 class Formulario extends Component {
-    state = { 
+    state = {
         nombre: '',
         categoria: ''
      }
-    render() { 
-        return ( 
+    render() {
+        return (
             <form>
                 <fieldset className="uk-fieldset uk-margin">
                     <legend className="uk-legend uk-text-center">
@@ -26,7 +26,21 @@ class Formulario extends Component {
                         <select 
                             className="uk-select" 
                             name="categoria"
-                        ></select>
+                        >
+                            <CategoriasConsumer>
+                                {(value)=>{
+                                    return (
+                                        value.categorias.map(categoria => (
+                                            <option key={categoria.id}
+                                            value={categoria.id}
+                                            data-uk-form-select>
+                                                {categoria.name_localized}
+                                            </option>
+                                        ))
+                                    )
+                                }}
+                            </CategoriasConsumer>
+                        </select>
                     </div>
                     <div>
                         <input type="submit" className="uk-button uk-button-danger" value="Buscar Eventos"/>
