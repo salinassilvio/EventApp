@@ -6,9 +6,9 @@ const CategoriasContext = React.createContext();
 export const CategoriasConsumer = CategoriasContext.Consumer;
 
 class CategoriasProvider extends Component {
-   
-   token = 'WRU5O3GFAAAW4G2LU4VI';
-    state = { 
+
+    token = 'WRU5O3GFAAAW4G2LU4VI';
+    state = {
         categorias : []
      }
 
@@ -23,11 +23,12 @@ class CategoriasProvider extends Component {
             categorias : categorias.data.categories
         })
     }
-    render() { 
-        return ( 
+    render() {
+        return (
             <CategoriasContext.Provider
                 value ={{
-                    categorias :  this.state.categorias
+                    categorias :  this.state.categorias,
+                    hola : 'Hola mundo'
                 }}
             >
                 {this.props.children}
@@ -35,5 +36,5 @@ class CategoriasProvider extends Component {
          );
     }
 }
- 
+
 export default CategoriasProvider;

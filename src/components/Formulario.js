@@ -39,6 +39,7 @@ class Formulario extends Component {
                             <option value="">--Selecciona Categoria--</option>
                             <CategoriasConsumer>
                                 {(value)=>{
+                                    console.log(value.hola)
                                     return (
                                         value.categorias.map(categoria => (
                                             <option key={categoria.id}
