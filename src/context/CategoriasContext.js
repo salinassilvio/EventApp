@@ -27,8 +27,7 @@ class CategoriasProvider extends Component {
         return (
             <CategoriasContext.Provider
                 value ={{
-                    categorias :  this.state.categorias,
-                    hola : 'Hola mundo'
+                    categorias :  this.state.categorias
                 }}
             >
                 {this.props.children}
